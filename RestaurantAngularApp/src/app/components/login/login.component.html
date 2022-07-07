@@ -1,0 +1,18 @@
+<h2>Login</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="onLoginClicked()">
+    <div class="container">
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+            <mat-error *ngIf="username?.invalid">Username is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="password?.invalid">Password needs at least 6 characters.</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="loginForm?.invalid">Login</button>
+        <button mat-raised-button color="primary" routerLink="../register" class="btn btn-link">Register</button>
+    </div>
+</form>

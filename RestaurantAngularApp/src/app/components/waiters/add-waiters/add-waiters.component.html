@@ -1,0 +1,52 @@
+<header class="page-header">
+    <h2>Waiters</h2>
+    <div class="actions">
+      <div class="filters">
+        <mat-form-field appearance="fill">
+            <mat-label>Salary</mat-label>
+            <input matInput [formControl]="salaryFilter" (change)="handleFilterChange()">
+          </mat-form-field>
+        </div>
+      <button mat-raised-button color="primary" aria-label="Add" (click)="goToAddPage()" class="text-white">
+        <mat-icon>playlist_add</mat-icon>
+      </button>
+    </div>
+  </header>
+  <table mat-table [dataSource]="waiters" class="mat-elevation-z8 table">
+  
+  
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let waiter">{{waiter.firstName}}</td>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let waiter">{{waiter.lastName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="salary">
+        <th mat-header-cell *matHeaderCellDef>Salary</th>
+        <td mat-cell *matCellDef="let waiter">{{waiter.salary}}</td>
+      </ng-container>
+  
+    <ng-conatiner matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let waiter">
+        <button mat-icon-button aria-label="Update" (click)="goToEditPage(waiter.id)" color="primary">
+          
+          <mat-icon>mode_edit</mat-icon>
+        </button>
+
+      <button mat-icon-button aria-label="Delete" (click)="deleteWaiter(waiter.id!)"
+          class="text-danger">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </td>
+    </ng-conatiner>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectItem(row)"></tr>
+  </table>
+  <footer>
+  
+    
+  </footer>

@@ -1,0 +1,28 @@
+<h2>Edit item</h2>
+
+<form [formGroup]="_orderFormGroup" class="mdcc" (ngSubmit)="onSubmit()">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <input type="text" matInput formControlName="status" />
+    <mat-error *ngIf="status?.invalid"
+      >Status is required.</mat-error> 
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date of Order</mat-label>
+    <input matInput [matDatepicker]="dp" formControlName="orderDate">
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+</mat-form-field>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput formControlName="date" type="datetime-local" />
+  </mat-form-field> -->
+
+  <div>
+    <p>Form Status: {{ _orderFormGroup.status }}</p>
+    <button mat-raised-button color="primary">Update item</button>
+  </div>
+      
+</form>

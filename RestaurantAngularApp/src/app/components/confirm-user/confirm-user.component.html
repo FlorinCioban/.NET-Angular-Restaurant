@@ -1,0 +1,15 @@
+<h2>Confirm Username</h2>
+
+<form [formGroup]="confirmForm" (ngSubmit)="onConfirmClicked()">
+    <div class="container">
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" />
+        <mat-error *ngIf="username?.invalid">Username is required.</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit">
+      Confirm username
+    </button>
+  </form>

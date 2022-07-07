@@ -1,0 +1,45 @@
+<h2>Edit item</h2>
+
+<form [formGroup]="_menuFormGroup" class="mdcc" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name" />
+      <mat-error *ngIf="name?.invalid"
+        >Name is required.</mat-error
+      >
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Details</mat-label>
+      <input type="text" matInput formControlName="details" />
+      <mat-error *ngIf="details?.invalid"
+        >Details is required.</mat-error
+      >
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Preparation Time</mat-label>
+      <input type="text" matInput formControlName="preparationTime"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input type="text" matInput formControlName="price"/>
+      </mat-form-field>
+  
+    <!-- <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="dp" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp></mat-datepicker>
+      </mat-form-field> -->
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date" type="datetime-local" />
+    </mat-form-field> -->
+  
+    
+    <div>
+      <p>Form Status: {{ _menuFormGroup.status }}</p>
+      <button mat-raised-button color="primary">Update item</button>
+    </div>
+  </form>

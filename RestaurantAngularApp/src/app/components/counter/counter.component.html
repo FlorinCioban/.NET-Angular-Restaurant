@@ -1,0 +1,7 @@
+<p>The counter value is: {{counter}}</p>
+
+<input type="text" value="counter" [(ngModel)]="counter" (ngModelChange)="handleChange()">
+<br />
+<button (click)="incrementCounter()">Increment</button>
+<br />
+<button (click)="decrementCounter()">Decrement</button>

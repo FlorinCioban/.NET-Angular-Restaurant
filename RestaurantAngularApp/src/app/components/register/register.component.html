@@ -1,0 +1,35 @@
+<div class="card">
+    <h2>Register</h2>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onRegisterClicked()">
+            <div class="container">
+                <mat-form-field appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="firstName" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="lastName" formControlName="lastName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password">
+                    <mat-error *ngIf="password?.invalid">Password needs at least 6 characters.</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username">
+                    <mat-error *ngIf="username?.invalid">Username is required.</mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" [disabled]="registerForm?.invalid">Register</button>
+            </div>
+        </form>
+        <button mat-raised-button color="primary" [routerLink]="['/auth/confirm']">
+            Confirm account
+          </button>
+    </div>
+</div>

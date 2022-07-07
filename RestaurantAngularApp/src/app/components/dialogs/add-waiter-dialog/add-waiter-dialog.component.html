@@ -1,0 +1,41 @@
+<h2>Add item</h2>
+
+<form [formGroup]="_waiterFormGroup" class="mdcc" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input type="text" matInput formControlName="firstName" />
+    <mat-error *ngIf="firstName?.invalid"
+      >First Name is required.</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input type="text" matInput formControlName="lastName" />
+    <mat-error *ngIf="lastName?.invalid"
+      >Last Name is required.</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Salary</mat-label>
+    <input type="text" matInput formControlName="salary" />
+  </mat-form-field>
+
+  <!-- <mat-form-field appearance="fill">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="dp" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field> -->
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Date</mat-label>
+    <input matInput formControlName="date" type="datetime-local" />
+  </mat-form-field> -->
+
+  
+  <div>
+    <p>Form Status: {{ _waiterFormGroup.status }}</p>
+    <button mat-raised-button color="primary">Add item</button>
+  </div>
+</form>
